@@ -7,7 +7,11 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Smart Navigation requires access to your location to display interactive maps and record return routes.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Smart Navigation requires access to your location in the background to record travel routes."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -15,8 +19,27 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.smartnavigation.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAsucyJmPxYlQ56znWS9obFb5PnVATi2Hg"
+        }
       }
     },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Smart Navigation requires location permission to track return routes."
+        }
+      ]
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     }
